@@ -36,7 +36,7 @@ This file is saved and loaded using ```pickle```
 
 ----
 ### dataset.npy
-This file contains the dataset after doing pre-processing and feature extraction as explained in the preprcoess_data.py data section
+This file contains the dataset after doing pre-processing and feature extraction as explained in the ```preprcoess_data.py``` data section
 
 ----
 ### email.txt
