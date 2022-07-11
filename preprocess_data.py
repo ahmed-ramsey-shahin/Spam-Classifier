@@ -2,6 +2,7 @@
 from nltk.stem import PorterStemmer
 import numpy as np
 import string
+import json
 import os
 import re
 
@@ -33,7 +34,7 @@ def preprocess(data):
     for i in data:
         i[0] = i[0].lower() # Lowercase all the letters
         i[0] = re.sub(r'<[^>]+>', '', i[0]) # Remove HTML tags
-        i[0] = re.sub(r'&.*;', '', i[0]) # Remove &nbsp; tags
+        i[0] = re.sub(r'&.*;', '', i[0]) # Remove &; tags
         i[0] = re.sub(r'[0-9]+', ' number ', i[0]) # Replace numbers with the word number
         i[0] = re.sub(r'(http|https)://[^\s]*', ' httpaddr ', i[0]) # Replace urls with the word httpaddr
         i[0] = re.sub(r'[^\s]+@[^\s]+', ' emailaddr ', i[0]) # Replace emails with the word emailaddr
@@ -91,7 +92,11 @@ if __name__ == '__main__':
     data = read_header_and_content(classes)
     data = preprocess(data)
     vocab_list = get_vocab_list(data)
+    file = open('vocab_list.json', 'w')
+    json.dump(vocab_list, file)
+    file.close()
     X = extract_dataset(data, vocab_list)
-    # np.save('dataset.npy', X)
+    X = np.random.shuffle(X)
+    np.save('dataset.npy', X)
     os.chdir(current_path)
     
