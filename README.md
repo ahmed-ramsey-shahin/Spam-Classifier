@@ -36,11 +36,11 @@ This file is saved and loaded using ```pickle```
 
 ----
 ### dataset.npy
-This file contains the dataset after doing pre-processing and feature extraction as explained in the ```preprcoess_data.py``` data section
+This file contains the dataset after doing pre-processing and feature extraction as explained in the ```preprcoess_data.py``` section
 
 ----
 ### email.txt
-A file containing a spam email which is not part of the dataset I just got it from my own email to test the model
+A file containing a spam email which is not part of the dataset I just got it from my own emails lost to test the model
 
 ----
 ### predict.py
