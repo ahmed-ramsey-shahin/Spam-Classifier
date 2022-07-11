@@ -50,6 +50,7 @@ A python script used to classify emails, in order for this script to work it nee
 | email.txt | Contains the email we need to predict |
 | classifier.obj | Contains the classifier object which is saved using ```pickle``` |
 | vocab_list.json | Contains the vocabulary list used to extract the features |
+
 if these files are given you can classify any given email
 
 ----
