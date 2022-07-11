@@ -47,7 +47,7 @@ A file containing a spam email which is not part of the dataset I just got it fr
 A python script used to classify emails, in order for this script to work it needs three extra files
 | File | Content |
 | ---- | ------- |
-| email.txt | Contains the email we need to predict |
+| email.txt | Contains the email we want to classify |
 | classifier.obj | Contains the classifier object which is saved using ```pickle``` |
 | vocab_list.json | Contains the vocabulary list used to extract the features |
 
