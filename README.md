@@ -55,11 +55,11 @@ if these files are given you can classify any given email
 
 ----
 ### preprocess_data.py
-This file does all the pre-processing required on the dataset, and it outputs 2 files, The ```vocab_list.json```, and the ```dataset.npy```.
+This file does all the pre-processing required on the dataset, and it outputs 2 files, the ```vocab_list.json```, and the ```dataset.npy```.
 1. First the script starts to remove the headers of the email by removing any data before the first empty line.
 2. Second it starts pre-processing the emails content by doing these steps
   * Convert all the letters to lower case letters
-  * Remove any tag of the form &nbsp;
+  * Remove any tag of the form &****;
   * Replce any numbers with the actual word "number" so we can use any number as a feature
   * Replace any url with the word "httpaddr" so we can use any url as a feature
   * Replace any email address with the word "emailaddr" so we can use any email address as a feature
@@ -68,16 +68,16 @@ This file does all the pre-processing required on the dataset, and it outputs 2 
   * Remove extra spaces
   * Put the whole email on one line
   * Use the ```PorterStemmer``` from the ```nltk``` package to do a word by word [stemming](https://www.wikiwand.com/en/Stemming)
-3. Extract the vocabulary list which contains any word that was used more than 100 times in the emails (This list is saved in the file ```vocab_list.json``` along with and an index with every word for example ```{"i": 1}``` which means that the index of "i" is 1) There are 2,873 words in this file.
-5. Extracting the features using vocabulary list mentioned above, since there are 2,873 words in the vocabulary list, then there are 2,873 features for every email. The index of the word from the json file is the index of the feature for example the first three features are "i", "cant", and "thi" thus the first three features are the same. The feature value contains 1 if the word is present, and 0 otherwise. For example if the words "i", and "cant" are present, and "thi" is not, then the first three features are going to be [1, 1, 0]
+3. Extract the vocabulary list which contains any word that was used more than 100 times in the emails (This list is saved in the file ```vocab_list.json``` along with and an index with every word, for example ```{"i": 1}``` which means that the index of "i" is 1) There are 2,873 words in this file.
+5. Extracting the features using the vocabulary list, since there are 2,873 words in the vocabulary list, then there are 2,873 features for every email. The index of the word from the json file is the index of the feature for example the first three features are "i", "cant", and "thi" thus the first three features are the same. The feature value contains 1 if the word is present, and 0 otherwise. For example if the words "i", and "cant" are present, and "thi" is not, then the first three features are going to be [1, 1, 0]
 6. Another row is added for every feature vector which contains the classification of the email 1 if spam, and 0 otherwise
-7. After extracting the features for all the emails in the dataset they are transposed, and put into a numpy array where the rows of the array are the features of the emails ```X = np.array([features_of_1st_email, features_of_2nd_email, ..., features_of_nth_email])``` the final shape of the numpy array is (12896, 2874)
+7. After extracting the features for all the emails in the dataset they are transposed, and put into a numpy array where the rows of the array are the features of a certain email ```X = np.array([features_of_1st_email, features_of_2nd_email, ..., features_of_nth_email])``` the final shape of the numpy array is (12896, 2874)
 8. Shuffle the rows of the numpy array
 9. The features are saved to the file ```dataset.npy```
 
 ----
 ### train.py
-The train.py file loads the ```dataset.npy``` file which contains the shuffled data, and it splits the data into 3 sets, train set, cross validation set, and test set the size of these sets are as follows 60%, 20%, and 20%. The train set is used to train the SVM model with a Gaussian Kernel, the cross validation set is used to pick the value of C, and gamma, and then the test set model is used to generalize the error rate. Then it saves the model to the classifier.obj file using ```pickle```.
+The train.py file loads the ```dataset.npy``` file which contains the shuffled data, and it splits the data into 3 sets, train set, cross validation set, and test set the size of these sets are as follows 60%, 20%, and 20%. The train set is used to train the SVM model with a Gaussian Kernel, the cross validation set is used to pick the value of C, gamma, and then the test set is used to generalize the error rate. Then it saves the model to the classifier.obj file using ```pickle```.
 
 ----
 ### vocab_list.json
