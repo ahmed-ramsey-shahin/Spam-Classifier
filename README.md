@@ -16,7 +16,7 @@ Spam-Classifier:.
 ├───email.txt
 ├───predict.py
 ├───preprocess_data.py
-├───train.p
+├───train.py
 └───vocab_list.json
 ```
 
