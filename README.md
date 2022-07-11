@@ -20,7 +20,7 @@ Spam-Classifier:.
 └───vocab_list.json
 ```
 
-Note that the dataset.npy file is compressed into a file called dataset.7z with compression level "9 - Ultra" thus it might take sometime to be extracted, the extracted file will be 282 MB
+Note that the dataset.npy file is compressed into a file called dataset.7z with compression level "9 - Ultra" thus it might take sometime to be extracted, the extracted file will be about 282 MB
 
 # The files used in the project
 ### Spam Assassin Dataset
