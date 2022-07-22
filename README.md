@@ -2,8 +2,7 @@
 A spam classifier based on SVM with Gaussian Kernel
 
 # The dataset
-The dataset I used to train the mode is the Spam Assassin dataset you can find it here
-https://spamassassin.apache.org/old/publiccorpus/
+The dataset I used to train the mode is the [Spam Assassin dataset](https://spamassassin.apache.org/old/publiccorpus/)
 
 # The hierarchy of the project
 ```bash
